@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block rankings %}
+{% load sorting_tags %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% anchor player__name _("Gracz") %}</th>
+      <th>{% anchor player_points__sum _("Punkty") %}</th>
+    </tr>
+  </thead>
+ {% load static %}
+  <tbody>
+    {% autosort ranking_list %}
+    {% for ranking_list in ranking_list %}
+      <tr>
+        <td>{{ ranking_list.player__name }}</td>
+        <td> {{ ranking_list.player_points__sum }} </td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

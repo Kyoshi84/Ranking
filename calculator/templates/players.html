@@ -1,0 +1,67 @@
+
+{% extends "main.html" %}
+{% block players %}
+
+        <div class="col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1">
+            <div class="well">
+                <h3 class="panel-title">Lista graczy:</h3>
+            </div>
+          
+            <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>UserID</th>
+      <th>Username</th>
+      <th>Nickname</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for player in player %}
+      <tr>
+        <td>{{ player.id }}</td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.nicname }}</td>
+        <td>{{ player.email }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if player.has_other_pages %}
+  <ul class="pagination">
+    {% if player.has_previous %}
+      <li><a href="?page={{ player.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in player.paginator.page_range %}
+      {% if player.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if player.has_next %}
+      <li><a href="?page={{ player.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+         </div>
+
+
+
+
+
+    
+   
+
+
+
+
+
+    
+        </div>
+{% endblock %}
