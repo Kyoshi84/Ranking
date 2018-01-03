@@ -1,8 +1,33 @@
 {% extends "main.html" %}
 
 {% block rankings %}
+<div class="container">
+  <div class="row">
+  <h2>Ranking General's War</h2>
 {% load sorting_tags %}
-<table class="table table-bordered">
+    <table class="points_table">
+      <thead>
+        <tr>
+          <th class="col-xs-1">{% anchor player__id _("#") %}</th>
+          <th class="col-xs-7">{% anchor player__name _("Gracz") %}</th>
+          <th class="col-xs-1">{% anchor player_points__sum _("Punkty") %}</th>
+        </tr>
+      </thead>
+      <tbody class="points_table_scrollbar">
+ {% autosort ranking_list %}
+    {% for ranking_list in ranking_list %}
+        
+        <tr class="{% if forloop.counter|divisibleby:2 %}odd{% else %}even{% endif %}">
+          <td class="col-xs-1">{{ ranking_list.player__id }}</td>
+          <td class="col-xs-7">{{ ranking_list.player__name }}</td>
+          <td class="col-xs-1">{{ ranking_list.player_points__sum }}</td>
+        </tr>
+
+
+ {% endfor %}
+      </tbody>
+    </table>
+<!-- <table class="table table-bordered">
   <thead>
     <tr>
       <th>{% anchor player__name _("Gracz") %}</th>
@@ -20,6 +45,7 @@
       </tr>
     {% endfor %}
   </tbody>
-</table>
+</table> -->
 
 {% endblock %}
+
