@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^tournaments/', views.tournaments, name='lista_turnieji'),
     url(r'^tournaments/(?P<tournament_id>\d+)/$', views.tournament, name='turniej'),
     url(r'^rankings/', views.rankings, name='rankings'),
+    url(r'^kontakt/', views.kontakt, name='kontakt'),
 
 ]
 

@@ -1,9 +1,11 @@
 {% extends "main.html" %}
 
 {% block rankings %}
+
 <div class="container">
   <div class="row">
-  <h2>Ranking General's War</h2>
+  <h2><p class="glyphicon glyphicon-star-empty"></p>Ranking General's War</h2>
+  </div>
 {% load sorting_tags %}
     <table class="points_table">
       <thead>
@@ -27,6 +29,10 @@
  {% endfor %}
       </tbody>
     </table>
+    
+</div>
+
+    
 <!-- <table class="table table-bordered">
   <thead>
     <tr>

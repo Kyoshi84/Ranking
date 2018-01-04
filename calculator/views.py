@@ -17,6 +17,9 @@ from django.db.models import Count, Min, Sum, Avg
 def home(request):
     return render_to_response('home.html') 
 
+def kontakt(request):
+    return render_to_response('kontakt.html') 
+
 def players(request):
     all_players = Player.objects.all().order_by('id')
     page = request.GET.get('page',1)

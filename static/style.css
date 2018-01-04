@@ -276,7 +276,7 @@
 }
 
 .points_table thead{
-  background: #d91f2d;
+  background: #cecece;
   color: #ffffff;
 }
 
@@ -321,6 +321,82 @@
 
 .points_table_scrollbar::-webkit-scrollbar-thumb{
   border-radius: 10px;
-  background-color: #D62929;
+  background-color: #F5F5F5;
   background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
+}
+
+/* Body style */
+  body {
+                background: linear-gradient(132deg, #ec5218, #1665c1);
+                background-size: 400% 400%;
+                animation: BackgroundGradient 30s ease infinite;
+            }
+            
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+/* Footer style */
+footer{
+    background-color:#222;
+    border-color: #080808;
+    height:300px;
+
+    width:100%;
+    bottom:0;
+    font-weight:lighter;
+    color:white;
+}
+.footerHeader{
+    width:100%;
+    padding:1em;
+    background-color:rgba(52, 73, 94,1.0);
+    text-align:center;
+    color:white;
+}
+footer h3{
+    font-weight:lighter;
+}
+footer ul{
+    padding-left:5px;
+    list-style:none;
+}
+footer p{
+    text-align : justify;
+    font-size : 12px;
+}
+footer iframe {
+    width:100%;
+    height:170px;
+}
+.sm{
+    list-style:none;
+    overflow:auto;
+}
+.sm li {
+    display: inline;
+    padding:5px;
+    float:left;
+} 
+.sm li a img {
+    width:32px;
+}
+/* Navabar shadow style */
+nav {
+  box-shadow: 5px 4px 5px #000;
+}
+
+/* Video style */
+.whov:hover { background-color: #00695c!important; }
+.view {
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+.secondbase {
+    background-color: rgba(255,255,255,.6); 
+    margin-top: -90px;
 }
