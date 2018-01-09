@@ -1,5 +1,7 @@
 from .models import Player, Timeline, TournamentStandings
-from django.core.urlresolvers import reverse_lazy
+#change it before push
+#from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic.edit import FormView
 from django import forms
