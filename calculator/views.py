@@ -22,31 +22,8 @@ def kontakt(request):
 
 def players(request):
     all_players = Player.objects.all().order_by('id')
-    page = request.GET.get('page',1)
-    paginator = Paginator(all_players, 10) # Show 25 contacts per page
     
-    try:
-        player = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        player = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        player = paginator.page(paginator.num_pages)
-
-
-
-    return render(request, 'players.html', {'player':player})
-
-def player(request):
-    try:
-        player = Player.objects.get(pk=player_id)
-    except Player.DoesNotExist:
-        raise Http404("Gracz o takim id nie istnieje") 
-    # response = "Wyniki dla bibliotekki %s."
-    return render(request, 'player.html', {'player': library})
-
-    
+    return render(request, 'players.html', {'all_players':all_players})
 
 def tournaments(request):
     return HttpResponse("You're looking at Tournaments")
