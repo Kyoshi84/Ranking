@@ -108,3 +108,13 @@ class Timeline(models.Model):
 		return self.title
 	def __str__(self):
 		return self.title
+
+class News(models.Model):
+	class Meta:
+		verbose_name = (u"Wiadomości")
+
+	date = models.DateField('date')
+	fblink = models.CharField(verbose_name="Link",max_length=500, default='https://www.facebook.com/Unclekyoshi/posts/2080173272212700')
+
+
+			

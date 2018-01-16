@@ -1,4 +1,4 @@
-from .models import Player, Timeline, TournamentStandings
+from .models import Player, Timeline, TournamentStandings, News
 #change it before push
 #from django.core.urlresolvers import reverse_lazy
 from django.urls import reverse, reverse_lazy
@@ -47,3 +47,7 @@ def timeline(request):
     timeline = Timeline.objects.all().order_by('date')
     
     return render_to_response('timeline.html', {'timeline': timeline})
+
+def news(request):
+    news = News.objects.all().order_by('date')
+    return render_to_response('news.html', {'news': news}) 

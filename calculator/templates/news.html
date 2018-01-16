@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+{% block news %}
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 class="text-center">General's War 2017 Wiadomości</h3>
+      <p>
+        Najnowsze informacje ze Świata. 
+      </p>
+      <ul class="">
+
+       {% for news in news %}
+       
+        <div class="fb-post" data-href="{{news.fblink}}"></div>
+          
+       {% endfor %}
+       </ul>
+       
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -3,7 +3,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from .models import Player, Tournament, TournamentStandings, Army, Timeline
+from .models import Player, Tournament, TournamentStandings, Army, Timeline, News
 from datetime import datetime
 from django.db.models import Count, Sum
 
@@ -90,6 +90,14 @@ class TimelineAdmin(ImportExportModelAdmin):
 
 	def name(self, obj):
 		return obj.timeline.title
+
+class NewsAdmin(ImportExportModelAdmin):
+	list_display = ['date','fblink']
+	list_display_links = ['date']
+	list_filter = ['date']
+
+	def name(self, obj):
+		return obj.news.id
 		
 
 
@@ -105,3 +113,4 @@ admin.site.register(Player, PlayeryAdmin)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(TournamentStandings, TournamentStandingsAdmin)
 admin.site.register(Timeline, TimelineAdmin)
+admin.site.register(News, NewsAdmin)
