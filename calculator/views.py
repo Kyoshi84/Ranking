@@ -17,14 +17,14 @@ from django.db.models import Count, Min, Sum, Avg
 # Create your views here.
 
 def home(request):
-    return render_to_response('home.html') 
+    return render_to_response('home.html')
 
 def kontakt(request):
-    return render_to_response('kontakt.html') 
+    return render_to_response('kontakt.html')
 
 def players(request):
     all_players = Player.objects.all().order_by('id')
-    
+
     return render(request, 'players.html', {'all_players':all_players})
 
 def tournaments(request):
@@ -34,20 +34,21 @@ def tournament(request):
     return HttpResponse("You're looking at Single Tournament")
 
 def rankings(request):
-# *****working full list of players and their scores *****   
+# *****working full list of players and their scores *****
 # ranking_list = TournamentStandings.objects.all().order_by('player')
 
 # **** working annotate for player__name. Need order by points
+# **** ranking_list = TournamentStandings.objects.values('player__name').annotate(Sum('player_points'))
 
-
-    ranking_list = TournamentStandings.objects.values('player__name').annotate(Sum('player_points'))
+#***** testing date filter
+    ranking_list = TournamentStandings.objects.values('player__name').filter(tournament__date__year='2017').annotate(Sum('player_points'))
     return render(request, 'rankings.html', {'ranking_list': ranking_list})
 
 def timeline(request):
     timeline = Timeline.objects.all().order_by('date')
-    
+
     return render_to_response('timeline.html', {'timeline': timeline})
 
 def news(request):
     news = News.objects.all().order_by('date')
-    return render_to_response('news.html', {'news': news}) 
+    return render_to_response('news.html', {'news': news})
