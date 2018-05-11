@@ -58,7 +58,7 @@ window.cookieconsent.initialise({
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 </head>
- 
+
 <body>
 
 <!-- <div id="bn_logo" style="position: fixed; left: 0; top: 30px;" class="imgFocus">
@@ -67,7 +67,7 @@ window.cookieconsent.initialise({
 
 
 <div class="container-fluid" id="wrapper">
- 
+
 
     <!-- Menu -->
 
@@ -83,23 +83,30 @@ window.cookieconsent.initialise({
     <ul class="nav navbar-nav">
     <li><a href='{% url "timeline" %}'>Timeline</a></li>
      <li><a href='{% url "lista_graczy" %}'>Lista graczy</a></li>
-     <li><a href='{% url "rankings" %}'>Ranking</a></li>
+     <li class="dropdown">
+    <a class="dropdown-toggle" href="#"  data-toggle="dropdown" >
+  Rankingi roczne<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        <li>  <a href='{% url "rankings2017" %}'>Ranking 2017</a></li>
+        <li>  <a  href='{% url "rankings2018" %}'>Ranking 2018</a></li>
+      </ul>
+     </li>
      <li><a href='{% url "kontakt" %}'>Kontakt</a></li>
      <li><a href='{% url "news" %}'>Wiadomości</a></li>
 
-    
+
 {% block menu %}
-{% endblock %}         
-                   
+{% endblock %}
+
 
     </ul>
-   
+
   </div><!-- /.navbar-collapse -->
 </nav>
 
 
 
-<div class="jumbotron">   
+<div class="jumbotron">
 
     <div class="container-fluid"><!-- lista -->
                 {% block timeline %}
@@ -108,22 +115,24 @@ window.cookieconsent.initialise({
                 {% endblock %}
                 {% block players %}
                 {% endblock %}
-                {% block rankings %}
+                {% block rankings2017 %}
+                {% endblock %}
+                {% block rankings2018 %}
                 {% endblock %}
                 {% block contact %}
                 {% endblock %}
                 {% block news %}
                 {% endblock %}
-               
+
     </div><!-- Koniec kolumny -->
 
-</div>     
-       
 </div>
 
-    
+</div>
 
-    
+
+
+
 
 
 
@@ -134,10 +143,10 @@ window.cookieconsent.initialise({
     <div class="col-md-4" >
         <h3>O nas</h3>
         <p>
-            General's War to cykliczny turniej Age of Sigmar, który organizowany jest w Warszawie w klubie AdMech przy współpracy z Battelmania.pl. Ranking powstał w trakcie rozgrywek w 2017 roku jako pomysł na wyłonienie najlepszego gracza całej serii a portal jest elektroniczną wersją tego rankingu. 
+            General's War to cykliczny turniej Age of Sigmar, który organizowany jest w Warszawie w klubie AdMech przy współpracy z Battelmania.pl. Ranking powstał w trakcie rozgrywek w 2017 roku jako pomysł na wyłonienie najlepszego gracza całej serii a portal jest elektroniczną wersją tego rankingu.
         </p>
     </div>
-    
+
     <div class="col-md-4">
         <h3>Nasza miejscówka </h3>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.524143469829!2d20.94686076526096!3d52.1793447297511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa186b221ae821fa2!2sEads+PZL+Warszawa-Ok%C4%99cie+S.a.!5e0!3m2!1spl!2sjo!4v1515102941036" sytle="" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -145,9 +154,9 @@ window.cookieconsent.initialise({
     <div class="col-md-4" >
         <h3>Kontakt</h3>
         <ul>
-            
+
             <li>E-mail : unclekyoshi@gmail.com</li>
-            
+
         </ul>
         <p>
             Nasze madia:
@@ -162,14 +171,14 @@ window.cookieconsent.initialise({
             Autor portalu:
         </p>
         <ul class="sm">
-            
+
             <li><a href="https://www.linkedin.com/in/jan-dionizy-mejor-0b6a1529/" ><img src="https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300" class="img-responsive" ></a></li>
-           
+
         </ul>
     </div>
     </div>
 </footer>
 </div>
-</body> 
+</body>
 
 </html>

@@ -33,7 +33,7 @@ def tournaments(request):
 def tournament(request):
     return HttpResponse("You're looking at Single Tournament")
 
-def rankings(request):
+def rankings2017(request):
 # *****working full list of players and their scores *****
 # ranking_list = TournamentStandings.objects.all().order_by('player')
 
@@ -42,7 +42,12 @@ def rankings(request):
 
 #***** testing date filter
     ranking_list = TournamentStandings.objects.values('player__name').filter(tournament__date__year='2017').annotate(Sum('player_points'))
-    return render(request, 'rankings.html', {'ranking_list': ranking_list})
+    return render(request, 'rankings2017.html', {'ranking_list': ranking_list})
+def rankings2018(request):
+
+#***** testing date filter
+    ranking_list = TournamentStandings.objects.values('player__name').filter(tournament__date__year='2018').annotate(Sum('player_points'))
+    return render(request, 'rankings2018.html', {'ranking_list': ranking_list})
 
 def timeline(request):
     timeline = Timeline.objects.all().order_by('date')

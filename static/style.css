@@ -336,7 +336,7 @@
                 background-size: 400% 400%;
                 animation: BackgroundGradient 30s ease infinite;
             }
-            
+
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
@@ -389,7 +389,7 @@ footer iframe {
     display: inline;
     padding:5px;
     float:left;
-} 
+}
 .sm li a img {
     width:32px;
 }
@@ -397,7 +397,13 @@ footer iframe {
 nav {
   box-shadow: 5px 4px 5px #000;
 }
-
+.dropdown-menu {
+  box-shadow: 0 6px 12px #333;
+  background-color: #fff;
+}
+.dropdown-menu>li>a {
+    color: #9d9d9d;
+}
 /* Video style */
 .whov:hover { background-color: #00695c!important; }
 .view {
@@ -406,7 +412,7 @@ nav {
   height: 500px;
 }
 .secondbase {
-    background-color: rgba(255,255,255,.6); 
+    background-color: rgba(255,255,255,.6);
     margin-top: -90px;
 }
 
