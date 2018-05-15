@@ -27,7 +27,7 @@ SECRET_KEY = 'q0xu@^tw+iur7z-2-i&x4y2+1cz!_cd7$n141l_(z)!irh@m3j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://unclekyoshi.pythonanywhere.com']
 
 
 # Application definition
@@ -72,9 +72,9 @@ ROOT_URLCONF = 'ranking.urls'
 TEMPLATES = [
     {
 
-        
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "static", "templates"), ], 
+        'DIRS': [os.path.join(BASE_DIR, "static", "templates"), ],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -82,7 +82,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                
+
             ],
         'loaders': [
             'admin_tools.template_loaders.Loader',
@@ -90,7 +90,7 @@ TEMPLATES = [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
             ]),
-            ],            
+            ],
 
         },
     },
@@ -169,4 +169,3 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'djangobower.finders.BowerFinder'
     )
-
