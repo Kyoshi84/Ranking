@@ -22,7 +22,7 @@ class KeywordAdmin(ImportExportModelAdmin):
 		name.short_description = 'Keyword'  #Renames column head
 
 class WarscrollAdmin(ImportExportModelAdmin):
-
+	filter_horizontal = ['keywords']
 	list_display = ['id_user','name', 'army']
 	list_display_links = ['name']
 	search_fields = ['name', 'army',]
