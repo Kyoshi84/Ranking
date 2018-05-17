@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'admin_tools_stats',
     'django_nvd3',
     'statystyka',
-#    'warscrolls',
+    'warscrolls',
+#    'keywords',
     'import_export',
     'webstack_django_sorting',
 ]
