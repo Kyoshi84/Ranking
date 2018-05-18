@@ -23,9 +23,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
 
 	url(r'^', include('calculator.urls')),
+    url(r'^', include('warscrolls.urls')),
     url(r'^admin_tools/', include('admin_tools.urls')),
 	url(r'^admin/', admin.site.urls),
 
-] 
+]
 
 urlpatterns += staticfiles_urlpatterns()
