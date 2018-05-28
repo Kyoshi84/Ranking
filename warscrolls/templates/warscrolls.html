@@ -1,0 +1,34 @@
+
+{% extends "main.html" %}
+{% block warscrolls %}
+<div class="container">
+  <div class="row">
+  <h2><p class="glyphicon glyphicon-star-empty"></p>Lista Warscrolli General's War</h2>
+  </div>
+<!--{% load sorting_tags %} -->
+    <table class="points_table">
+      <thead>
+        <tr>
+      <!--    <th class="col-xs-1">{% anchor scroll_id _("#") %}</th>
+          <th class="col-xs-7">{% anchor scroll_name _("Warscroll") %}</th>
+          <th class="col-xs-1">{% anchor scroll_key _("Keywords") %}</th> -->
+        </tr>
+      </thead>
+      <tbody class="points_table_scrollbar">
+ <!-- {% autosort  warscrolls %} -->
+    {% for scroll in warscrolls %}
+
+        <tr class="{% if forloop.counter|divisibleby:2 %}odd{% else %}even{% endif %}">
+          <td class="col-xs-1">{{ scroll_id }}</td>
+          <td class="col-xs-7">{{ scroll.name }}</td>
+          <td class="col-xs-1">{%for key in scroll.key.all }{{ scroll.key }}{% endfor %}</td>
+        </tr>
+
+
+ {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+{%endblock%}

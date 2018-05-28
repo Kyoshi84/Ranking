@@ -50,9 +50,12 @@ INSTALLED_APPS = [
     'django_nvd3',
     'statystyka',
     'warscrolls',
-#    'keywords',
+    'django_tables2',
+    'django_filters',
     'import_export',
+    'crispy_forms',
     'webstack_django_sorting',
+    'bootstrap3',
 ]
 
 

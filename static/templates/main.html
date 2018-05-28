@@ -91,6 +91,7 @@ window.cookieconsent.initialise({
         <li>  <a  href='{% url "rankings2018" %}'>Ranking 2018</a></li>
       </ul>
      </li>
+     <li><a href='{% url "warscrolls" %}'>Warscrolle</a></li>
      <li><a href='{% url "kontakt" %}'>Kontakt</a></li>
      <li><a href='{% url "news" %}'>Wiadomości</a></li>
 
@@ -123,6 +124,9 @@ window.cookieconsent.initialise({
                 {% endblock %}
                 {% block news %}
                 {% endblock %}
+                {% block warscrolls %}
+                {% endblock %}
+
 
     </div><!-- Koniec kolumny -->
 
