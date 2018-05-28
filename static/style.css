@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .timeline {
     position: relative;
     padding:4px 0 0 0;
@@ -330,11 +332,13 @@
   background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
 }
 
+
 /* Body style */
   body {
                 background: linear-gradient(132deg, #2be2ef, #0c1e33);
                 background-size: 400% 400%;
                 animation: BackgroundGradient 30s ease infinite;
+                font-family: 'Lato', sans-serif;
             }
 
 @keyframes BackgroundGradient {
@@ -349,11 +353,12 @@ footer{
     background-color:#222;
     border-color: #080808;
     height:300px;
-
+    font-family: 'Lato', sans-serif;
     width:100%;
     bottom:0;
     font-weight:lighter;
     color:white;
+    font-family: 'Lato', sans-serif;
 }
 .footerHeader{
     width:100%;
