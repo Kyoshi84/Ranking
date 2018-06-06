@@ -16,19 +16,19 @@ class ScrollListFormHelper(FormHelper):
     form_show_errors = True
     help_text_inline = False
     html5_required = True
-    layout = Layout(
-                Fieldset(
-                    '<i class="fa fa-search"></i> Search Warscroll Records',
-                    InlineField('scroll_id'),
-                    InlineField('scroll_name'),
-                    InlineField('scroll_army'),
-                    InlineField('scroll_key'),
-                ),
-                FormActions(
-                    StrictButton(
-                        '<i class="fa fa-search"></i> Search',
-                        type='submit',
-                        css_class='btn-primary',
-                        style='margin-top:10px;')
-                )
-    )
+    #layout = Layout(
+    #            Fieldset(
+    #                '<i class="fa fa-search"></i> Search Warscroll Records',
+    #                InlineField('scroll_id'),
+    #                InlineField('scroll_name'),
+    #                InlineField('scroll_army'),
+    #                InlineField('keyword_key'),
+    #            ),
+    #            FormActions(
+    #                StrictButton(
+    #                    '<i class="fa fa-search"></i> Search',
+    #                    type='submit',
+    #                    css_class='btn-primary',
+    #                    style='margin-top:10px;')
+    #            )
+    #)

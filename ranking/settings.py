@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'webstack_django_sorting',
     'bootstrap3',
+    'widget_tweaks',
 ]
 
 
