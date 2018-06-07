@@ -24,6 +24,7 @@ from .utils import PagedFilteredTableView
 from .forms import ScrollListFormHelper
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
+from django.views.decorators.csrf import ensure_csrf_cookie
 # Create your views here.
 
 #def warscrolls(request):
@@ -56,6 +57,7 @@ class ScrollListView(PagedFilteredTableView):
     def get_queryset(self):
         qs = super(ScrollListView, self).get_queryset()
         return qs
+
 
     def post(self, request, *args, **kwargs):
         return PagedFilteredTableView.as_view()(request)

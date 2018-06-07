@@ -7,5 +7,12 @@ class ScrollListFilter(django_filters.FilterSet):
 
   class Meta:
     model = Scroll
-    fields = ['id', 'name', 'army','key']
+    fields = {
+    'name': ['contains'],
+    'key': ['contains'],
+    'army': ['exact'],
+    }
     order_by = ['id']
+
+
+#'price': ['lt', 'gt'],

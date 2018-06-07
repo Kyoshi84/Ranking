@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^keywords/', views.keyword, name='keaywords'),
     url(r'^warscrolls/$', ScrollListView.as_view(), name='warscrolls'),
 
+
 ]
