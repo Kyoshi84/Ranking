@@ -4,7 +4,10 @@ from .models import Scroll, Keyword
 
 
 class ScrollTable(tables.Table):
-
+    #id = tables.LinkColumn('scroll-detail', args=[A('id')])
+    #name = tables.LinkColumn('scroll-detail', args=[A('id')])
+    #army = tables.LinkColumn('scroll-detail', args=[A('id')])
+    #key = tables.LinkColumn('scroll-detail', args=[A('id')])
     class Meta:
         model = Scroll
 #      fields = ('scroll_id', 'scroll_name', 'army','key')

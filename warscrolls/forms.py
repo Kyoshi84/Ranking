@@ -19,7 +19,7 @@ class ScrollListFormHelper(FormHelper):
     layout = Layout(
                 Fieldset(
                     '<i class="fa fa-search"></i> Search Warscroll Records',
-                    InlineField('id'),
+                    #InlineField('id'),
                     InlineField('name'),
                     InlineField('army'),
                     InlineField('key'),
