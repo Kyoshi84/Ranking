@@ -10,7 +10,7 @@ class ScrollListFilter(django_filters.FilterSet):
     fields = {
     'name': ['contains'],
     'key': ['contains'],
-    'army': ['exact'],
+    'army': ['exact']
     }
     order_by = ['id']
 
