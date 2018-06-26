@@ -19,7 +19,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django_tables2 import RequestConfig
 from braces.views import LoginRequiredMixin, GroupRequiredMixin
 from .tables import ScrollTable
-from .filters import ScrollListFilter
+from .filters import ScrollListFilter, WarscrollFilter
 from .utils import PagedFilteredTableView
 from .forms import ScrollListFormHelper
 from crispy_forms.helper import FormHelper
@@ -48,7 +48,7 @@ class ScrollListView(PagedFilteredTableView):
     model = Scroll
     template_name = 'scroll_list.html'
     context_object_name = 'scroll'
-    ordering = ['-id']
+    ordering = ['-pk']
 #    group_required = u'company-user'
     table_class = ScrollTable
     filter_class = ScrollListFilter
@@ -70,3 +70,8 @@ class ScrollListView(PagedFilteredTableView):
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
         return context
+
+def search(request):
+    scroll_list = scroll.objects.all()
+    scroll_filter = WarscrollFilter(request.GET, queryset=scroll_list)
+    return render(request, 'warscrolls_list.html', {'filter': scroll_filter})
