@@ -8,13 +8,47 @@
 
 
 
-
-
 {% block search %}
 
   <form method="get">
-    {{ filter.form.as_p }}
-    <button type="submit">Search</button>
+<!--    {{ filter.form.as_p }} to jest defaultowa formatka dla filtrów-->
+<div class="well">
+     <h4 style="margin-top: 0">Filter</h4>
+    <div class="row">
+
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.name.label_tag }}
+          {% render_field filter.form.name class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.army.label_tag }}
+          {% render_field filter.form.army class="form-control" %}
+        </div>
+
+        <!-- test multi select with search -->
+
+     <div class="container"> dla konterera zadziałało, ale ujowo wygląda
+        <div class="scrollbox">
+        {% for key in filter.form.key %}
+        <label class="checkbox-inline">
+          {{ key.tag }}  {{ key.choice_label}}
+
+        </label>
+        {% endfor %}
+      </div>  
+
+
+
+
+
+
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">
+     <span class="glyphicon glyphicon-search"></span> Search
+   </button>
+
+
   </form>
 
   <table class="table table-bordered">
