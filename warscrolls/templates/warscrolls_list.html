@@ -9,7 +9,50 @@
 
 
 {% block search %}
+<script>
+$(document).ready(function(){
+    $('.filterable .btn-filter').click(function(){
+        var $panel = $(this).parents('.filterable'),
+        $filters = $panel.find('.filters input'),
+        $tbody = $panel.find('.table tbody');
+        if ($filters.prop('disabled') == true) {
+            $filters.prop('disabled', false);
+            $filters.first().focus();
+        } else {
+            $filters.val('').prop('disabled', true);
+            $tbody.find('.no-result').remove();
+            $tbody.find('tr').show();
+        }
+    });
 
+    $('.filterable .filters input').keyup(function(e){
+        /* Ignore tab key */
+        var code = e.keyCode || e.which;
+        if (code == '9') return;
+        /* Useful DOM data and selectors */
+        var $input = $(this),
+        inputContent = $input.val().toLowerCase(),
+        $panel = $input.parents('.filterable'),
+        column = $panel.find('.filters th').index($input.parents('th')),
+        $table = $panel.find('.table'),
+        $rows = $table.find('tbody tr');
+        /* Dirtiest filter function ever ;) */
+        var $filteredRows = $rows.filter(function(){
+            var value = $(this).find('td').eq(column).text().toLowerCase();
+            return value.indexOf(inputContent) === -1;
+        });
+        /* Clean previous no-result if exist */
+        $table.find('tbody .no-result').remove();
+        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        $rows.show();
+        $filteredRows.hide();
+        /* Prepend no-result row if all rows are filtered */
+        if ($filteredRows.length === $rows.length) {
+            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+        }
+    });
+});
+</script>
   <form method="get">
 <!--    {{ filter.form.as_p }} to jest defaultowa formatka dla filtrów-->
 <div class="well">
@@ -24,26 +67,62 @@
           {{ filter.form.army.label_tag }}
           {% render_field filter.form.army class="form-control" %}
         </div>
+    </div>
 
-        <!-- test multi select with search -->
+    <div class="container">
+      <!-- nie łapie tego sercha dla kolumny keywords -->
+        						<div class="panel panel-primary filterable">
+        							<div class="panel-heading">
+        								<h3 class="panel-title">Keywords<span style="color: white; font-weight: bold;"> *</span></h3>
+        								<div class="pull-right">
+        									<button type="button" class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>Szukaj</button>
+        								</div>
+        							</div>
 
-     <div class="container"> dla konterera zadziałało, ale ujowo wygląda
-        <div class="scrollbox">
-        {% for key in filter.form.key %}
-        <label class="checkbox-inline">
-          {{ key.tag }}  {{ key.choice_label}}
+        								<table>
+        									<tr class="filters">
+        									<th style="width: 4.1%;">
+        										<div class="checkbox radio-margin">
+        											<label>
+        												<input type="checkbox" value="">
+        												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+        											</label>
+        										</div>
+        									</th>
+        									<th style="width: 49.8%">
+        										<input type="text" class="form-control" placeholder="Wszystkie" disabled>
+        									</th>
 
-        </label>
-        {% endfor %}
-      </div>  
+        									</tr>
+        								</table>
+        								<div class="bg tablescroll">
+        									<table class="table table-bordered table-striped">
+                              {% for key in filter.form.key %}
+        										<tr>
+        											<td style="width: 4.1%;">
+        												<div class="checkbox radio-margin">
+        													<label type="checkbox">
+                                      {{ key.tag }}
+
+        														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 
 
+        													</label>
+        												</div>
+        											</td>
+        											<td style="width: 49.8%">{{ key.choice_label}}</td>
 
+        										</tr>
+                            {% endfor %}
+        									</table>
+        								</div>
 
+        						</div>
+        </div>
 
 
     </div>
-  </div>
+<!-- search trzeba wbi do kontenera z opcjami wyboru powyżej -->
   <button type="submit" class="btn btn-primary">
      <span class="glyphicon glyphicon-search"></span> Search
    </button>

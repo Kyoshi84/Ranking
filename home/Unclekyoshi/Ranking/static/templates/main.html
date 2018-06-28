@@ -32,6 +32,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link rel="stylesheet" href="{% static 'style.css' %}" >
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" >
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 <script>
 window.addEventListener("load", function(){
@@ -55,6 +58,7 @@ window.cookieconsent.initialise({
   }
 })});
 </script>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -100,7 +104,7 @@ window.cookieconsent.initialise({
         <li>  <a  href='{% url "rankings2018" %}'>Ranking 2018</a></li>
       </ul>
      </li>
-     <li><a href='{% url "warscrolls" %}'>Warscrolle</a></li>
+     <li><a href='{% url "search" %}'>Warscrolle</a></li>
      <li><a href='{% url "kontakt" %}'>Kontakt</a></li>
      <li><a href='{% url "news" %}'>Wiadomości</a></li>
 
